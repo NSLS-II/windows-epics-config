@@ -11,7 +11,7 @@ call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliar
 echo.
 
 echo Set EPICS host architecture to 64 bit static
-SET EPICS_HOST_ARCH="windows-x64-static"
+SET EPICS_HOST_ARCH=windows-x64-static
 echo.
 
 echo Ready to build. Run 'make bundle' to generate a tarball archive, and 'make localinstall' for a local installation.
