@@ -46,11 +46,10 @@ GOTO DONEUTILS
 echo Make, re2c, and wget were already installed
 :DONEUTILS
 
-REM Update the path to include wget for grabbing 7zip later. (For some reason curl fails on that link)
+REM Update the path to include wget for grabbing other requirements
 echo Adding tools to PATH...
 SET PATH=%EPICS_TOOLS_LOC%\bin;%PATH%
 echo.
-
 
 
 REM Setup 7zip
@@ -79,8 +78,8 @@ REM Setup Strawberry Perl
 echo Installing strawberry perl...
 IF EXIST "%EPICS_TOOLS_LOC%\Perl" (GOTO SKIPPERL) ELSE (
 mkdir %EPICS_TOOLS_LOC%\Perl
-curl http://strawberryperl.com/download/5.30.2.1/strawberry-perl-5.30.2.1-64bit-portable.zip --output %EPICS_TOOLS_LOC%\Perl\strawberry-perl-5.30.2.1-64bit-portable.zip
 cd %EPICS_TOOLS_LOC%\Perl
+wget http://strawberryperl.com/download/5.30.2.1/strawberry-perl-5.30.2.1-64bit-portable.zip
 7za x -y strawberry-perl-5.30.2.1-64bit-portable.zip > nul
 REM del strawberry-perl-5.30.2.1-64bit-portable.zip
 echo Done installing perl.
@@ -92,17 +91,12 @@ echo Perl was already installed
 :DONEPERL
 echo.
 
-REM Add Perl to path 
-echo Adding Perl to PATH...
-SET PATH=%EPICS_TOOLS_LOC%\Perl\perl\bin;%PATH%
-echo.
-
 
 REM Setup Python3
 echo Installing python...
 IF EXIST "%EPICS_TOOLS_LOC%\Python" (GOTO SKIPPYTHON) ELSE ( 
 cd %EPICS_TOOLS_LOC%
-curl -L https://github.com/winpython/winpython/releases/download/2.3.20200530/Winpython64-3.8.3.0dot.exe --output Winpython64-3.8.3.0dot.exe
+wget https://github.com/winpython/winpython/releases/download/2.3.20200530/Winpython64-3.8.3.0dot.exe
 7za x -y Winpython64-3.8.3.0dot.exe > nul
 move WPy64-3830\python-3.8.3.amd64 Python
 rmdir /S /Q WPy64-3830
@@ -114,34 +108,25 @@ GOTO DONEPYTHON
 echo Python was already installed
 :DONEPYTHON
 
-REM Add Python to path
-echo Adding Python to PATH
-SET PATH=%EPICS_TOOLS_LOC%\Python;%PATH%
-echo.
-
 
 REM Setup Visual Studio, if isn't installed already
 echo Installing Visual Studio...
-IF EXIST "C:\Program Files (x86)\Microsoft Visual Studio" (GOTO SKIPVS) ELSE (
+IF EXIST "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" (GOTO SKIPVS) ELSE (
 mkdir %EPICS_TOOLS_LOC%\VS
-# Curl exact MS download link
-curl https://download.visualstudio.microsoft.com/download/pr/05734053-383e-4b1a-9950-c7db8a55750d/fbfc005ace3e6b4990e9a4be0fa09e7face1af5ee1f61035c64dbc16c407aeda/vs_BuildTools.exe --output %EPICS_TOOLS_LOC%\VS\vs_BuildTools.exe
 cd %EPICS_TOOLS_LOC%\VS
-vs_BuildTools.exe --passive --add Microsoft.VisualStudio.Workload.VCTools
+wget https://aka.ms/vs/17/release/vs_BuildTools.exe
+vs_BuildTools.exe --passive --includeRecommended --add Microsoft.VisualStudio.Workload.VCTools
 )
 
-echo Done installing Visual Studio.
+echo Started installing Visual Studio.
 GOTO DONEVS
 :SKIPVS
 echo Visual Studio was already installed
 :DONEVS
 echo.
 
-REM Call Visual Studio environment setup script
-REM echo Configuring Visual Studio build environment
-REM call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 
 cd %WINDOWS_EPICS_CONFIG%
 
-echo Successfully initialized EPICS build environment.
-echo Done.
+echo Successfully installed dependencies for EPICS builds on windows.
+echo Once Visual Studio install completes, open new terminal, and run configureEnv.bat to initialize build environment.
