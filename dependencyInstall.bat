@@ -81,8 +81,8 @@ IF EXIST "%EPICS_TOOLS_LOC%\Perl" (GOTO SKIPPERL) ELSE (
 mkdir %EPICS_TOOLS_LOC%\Perl
 curl http://strawberryperl.com/download/5.30.2.1/strawberry-perl-5.30.2.1-64bit-portable.zip --output %EPICS_TOOLS_LOC%\Perl\strawberry-perl-5.30.2.1-64bit-portable.zip
 cd %EPICS_TOOLS_LOC%\Perl
-7za x -y strawberry-perl-5.30.2.1-64bit-portable.zip
-del strawberry-perl-5.30.2.1-64bit-portable.zip
+7za x -y strawberry-perl-5.30.2.1-64bit-portable.zip > nul
+REM del strawberry-perl-5.30.2.1-64bit-portable.zip
 echo Done installing perl.
 )
 
@@ -103,7 +103,7 @@ echo Installing python...
 IF EXIST "%EPICS_TOOLS_LOC%\Python" (GOTO SKIPPYTHON) ELSE ( 
 cd %EPICS_TOOLS_LOC%
 curl -L https://github.com/winpython/winpython/releases/download/2.3.20200530/Winpython64-3.8.3.0dot.exe --output Winpython64-3.8.3.0dot.exe
-7za x -y Winpython64-3.8.3.0dot.exe
+7za x -y Winpython64-3.8.3.0dot.exe > nul
 move WPy64-3830\python-3.8.3.amd64 Python
 rmdir /S /Q WPy64-3830
 del Winpython64-3.8.3.0dot.exe
