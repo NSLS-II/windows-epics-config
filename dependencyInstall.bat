@@ -52,16 +52,6 @@ echo Visual Studio was already installed
 :DONEVS
 echo.
 
-REM Setup Strawberry Perl
-echo Installing strawberry perl...
-mkdir %EPICS_TOOLS_LOC%\Perl
-curl http://strawberryperl.com/download/5.30.2.1/strawberry-perl-5.30.2.1-64bit-portable.zip --output %EPICS_TOOLS_LOC%\Perl\strawberry-perl-5.30.2.1-64bit-portable.zip
-cd %EPICS_TOOLS_LOC%\Perl
-tar -xf strawberry-perl-5.30.2.1-64bit-portable.zip
-del strawberry-perl-5.30.2.1-64bit-portable.zip
-echo Done installing perl.
-echo.
-
 REM Setup 7zip
 echo Installing 7zip...
 mkdir %EPICS_TOOLS_LOC%\7-Zip
@@ -74,6 +64,17 @@ echo Done installing 7-zip.
 REM We need 7zip in path to unpack portable python archive.
 echo Adding 7zip to PATH...
 SET PATH=%EPICS_TOOLS_LOC%\7-Zip;%PATH%
+echo.
+
+
+REM Setup Strawberry Perl
+echo Installing strawberry perl...
+mkdir %EPICS_TOOLS_LOC%\Perl
+curl http://strawberryperl.com/download/5.30.2.1/strawberry-perl-5.30.2.1-64bit-portable.zip --output %EPICS_TOOLS_LOC%\Perl\strawberry-perl-5.30.2.1-64bit-portable.zip
+cd %EPICS_TOOLS_LOC%\Perl
+7za x -y strawberry-perl-5.30.2.1-64bit-portable.zip
+del strawberry-perl-5.30.2.1-64bit-portable.zip
+echo Done installing perl.
 echo.
 
 
