@@ -18,7 +18,7 @@ This will perform the following operations:
 * Install a portable version of 7zip to `TOOLS`
 * Install a portable version of Python to `TOOLS`
 * Install a portable version of Strawberry Perl to `TOOLS`
-* Download the visual studio build tools install to `TOOLS`
+* Download the visual studio build tools installer to `TOOLS`
 * Execute an automatic install of the build tools in passive mode - a popup will come up to show progress, wait until this is done before continuing
 
 Once the dependency installer script has completed, you are ready to perform a build.
