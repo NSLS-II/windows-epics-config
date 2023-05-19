@@ -10,7 +10,7 @@ INSTALL=C:/EPICS/BUILD
 
 GIT_URL=https://github.com/epics-base/
 
-EPICS_BASE       R7.0.6.1             $(INSTALL)/base                          epics-base               YES              YES              YES
+EPICS_BASE       R7.0.7             $(INSTALL)/base                          epics-base               YES              YES              YES
 
 GIT_URL=https://github.com/EPICS-synApps/
 
