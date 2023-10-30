@@ -4,7 +4,13 @@ Configuration meant to simplify executing builds of EPICS software on windows.
 
 ### Setup
 
-To begin, you will need to perform a one time install of necessary external software, including git, python, perl, make, re2c, wget, tar, and Visual Studio build tools. To simplify this process, a batch script has been written. Simply open an administrator command prompt (Start Menu -> CMD -> Run as Administrator), and execute the batch script:
+Firstly, it is recommended to [install Git on Windows](https://git-scm.com/download/win). Open an administrator command prompt (Start Menu -> CMD -> Run as Administrator), and use '--recursive' to get this repo and its subrepo `installSynApps`:
+```bash
+git clone --recursive https://github.com/NSLS2/windows-epics-config.git
+cd windows-epics-config
+```
+
+To begin, you will need to perform a one time install of necessary external software, including git, python, perl, make, re2c, wget, tar, and Visual Studio build tools. To simplify this process, a batch script has been written. Execute the batch script:
 
 ```
 dependencyInstall.bat
