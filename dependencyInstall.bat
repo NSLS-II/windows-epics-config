@@ -115,7 +115,7 @@ IF EXIST "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" (GOTO 
 mkdir %EPICS_TOOLS_LOC%\VS
 cd %EPICS_TOOLS_LOC%\VS
 wget https://aka.ms/vs/17/release/vs_BuildTools.exe
-vs_BuildTools.exe --passive --includeRecommended --add Microsoft.VisualStudio.Workload.VCTools
+vs_BuildTools.exe --passive --includeRecommended --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.ATLMFC
 )
 
 echo Started installing Visual Studio.
