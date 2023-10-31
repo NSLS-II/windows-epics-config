@@ -18,7 +18,7 @@ SUPPORT          R6-2-1               $(INSTALL)/support                       s
 CONFIGURE        R6-2                 $(SUPPORT)/configure                     configure                YES              YES              NO
 UTILS            R6-2                 $(SUPPORT)/utils                         utils                    YES              YES              NO
 
-WGET_URL=https://github.com/mdavidsaver/sequencer-mirror/releases/tag/
+WGET_URL=https://github.com/mdavidsaver/sequencer-mirror/archive/refs/tags/
 
 SNCSEQ           R2-2-9                $(SUPPORT)/seq                           R2-2-9.tar.gz         YES              YES              YES
 
