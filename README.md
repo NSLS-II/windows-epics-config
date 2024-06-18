@@ -4,9 +4,10 @@ Configuration meant to simplify executing builds of EPICS software on windows.
 
 ### Setup
 
-Firstly, it is recommended to [install Git on Windows](https://git-scm.com/download/win). Open an administrator command prompt (Start Menu -> search CMD -> Run as Administrator), and use '--recursive' to get this repo and its subrepo `installSynApps`:
+Firstly, it is recommended to [install Git on Windows](https://git-scm.com/download/win). Open an administrator command prompt (Start Menu -> search CMD -> Right Click --> Run as Administrator), and use '--recursive' to get this repo and its subrepo `installSynApps`. Note: all the following commands have to be typed on Windows's native terminal `Command Prompt`. DO NOT use the Git Bash's terminal.
 ```bash
-git clone --recursive https://github.com/NSLS2/windows-epics-config.git
+cd %USERPROFILE%\Downloads
+git clone --recursive https://github.com/NSLS-II/windows-epics-config.git
 cd windows-epics-config
 ```
 
